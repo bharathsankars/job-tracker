@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./JobTracker.css";
-import { jsPDF } from "jspdf";
-import 'jspdf-autotable';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { jsPDF } from "jspdf";
+// import 'jspdf-autotable';
+// import { toast, ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 const JobTracker = () => {
   const [applications, setApplications] = useState([]);
@@ -47,11 +47,11 @@ const JobTracker = () => {
           idx === editIndex ? formData : app
         );
         setApplications(updatedApplications);
-        toast.success("Application updated successfully!");
+        // toast.success("Application updated successfully!");
         setEditIndex(null);
       } else {
         setApplications((prev) => [...prev, formData]);
-        toast.success("Application added successfully!");
+        // toast.success("Application added successfully!");
       }
       setFormData({
         company: "",
@@ -125,25 +125,25 @@ const JobTracker = () => {
     document.body.removeChild(link);
   };
 
-  const handleExportPDF = () => {
-    const doc = new jsPDF();
-    const headers = ["Company", "Title", "Application Date", "Status", "Email", "Notes"];
-    const rows = filteredAndSortedApplications.map((app) => [
-      app.company,
-      app.title,
-      new Date(app.date).toLocaleDateString(),
-      app.status,
-      app.email,
-      app.notes,
-    ]);
+  // const handleExportPDF = () => {
+  //   const doc = new jsPDF();
+  //   const headers = ["Company", "Title", "Application Date", "Status", "Email", "Notes"];
+  //   const rows = filteredAndSortedApplications.map((app) => [
+  //     app.company,
+  //     app.title,
+  //     new Date(app.date).toLocaleDateString(),
+  //     app.status,
+  //     app.email,
+  //     app.notes,
+  //   ]);
 
-    doc.autoTable({
-      head: [headers],
-      body: rows,
-    });
+  //   doc.autoTable({
+  //     head: [headers],
+  //     body: rows,
+  //   });
 
-    doc.save("job_applications.pdf");
-  };
+  //   doc.save("job_applications.pdf");
+  // };
 
   const [formErrors, setFormErrors] = useState({
     company: "",
