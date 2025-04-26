@@ -245,7 +245,7 @@ const JobTracker = () => {
             <div> </div>
           ) : (
             <div className="button-container">
-              <button title="Download applications" onClick={handleExportCSV} className="export-button">
+              <button title="Download Applications" onClick={handleExportCSV} className="export-button">
                 Export to CSV
               </button>
               {/* <button onClick={handleExportPDF} className="export-button">
